@@ -1,142 +1,111 @@
-'use client';
+"use client";
 
-export default function ContactPage() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission here
-    alert('Thank you for your message. We will get back to you soon!');
-  };
+import { useEffect, useState } from "react";
+import Script from "next/script";
+
+export default function Contact({ contactdataNumber }) {
+  const [isFormLoaded, setIsFormLoaded] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-            Contact Us
-          </h1>
-          <p className="mt-3 text-xl text-gray-500">
-            Have questions? We're here to help.
-          </p>
-        </div>
+    <section className="relative pt-24 md:pt-40 px-6 md:px-20 overflow-hidden bg-white">
+      <div className="container relative z-10">
+        <div className="mx-auto flex flex-col gap-12 md:gap-16">
 
-        <div className="bg-white shadow overflow-hidden sm:rounded-lg">
-          <div className="px-4 py-5 sm:p-6">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
-                <div>
-                  <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">
-                    First name
-                  </label>
-                  <input
-                    type="text"
-                    name="first-name"
-                    id="first-name"
-                    autoComplete="given-name"
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    required
-                  />
-                </div>
+          {/* GRID */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
-                <div>
-                  <label htmlFor="last-name" className="block text-sm font-medium text-gray-700">
-                    Last name
-                  </label>
-                  <input
-                    type="text"
-                    name="last-name"
-                    id="last-name"
-                    autoComplete="family-name"
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    required
-                  />
-                </div>
+            {/* LEFT COLUMN */}
+            <div className="flex flex-col gap-10">
 
-                <div className="sm:col-span-2">
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    required
-                  />
-                </div>
-
-                <div className="sm:col-span-2">
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-                    Phone (Optional)
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    id="phone"
-                    autoComplete="tel"
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                  />
-                </div>
-
-                <div className="sm:col-span-2">
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                    Message
-                  </label>
-                  <div className="mt-1">
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full border border-gray-300 rounded-md py-2 px-3"
-                      defaultValue={''}
-                      required
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex justify-end">
-                <button
-                  type="submit"
-                  className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-
-        <div className="mt-10 bg-white shadow overflow-hidden sm:rounded-lg">
-          <div className="px-4 py-5 sm:p-6">
-            <h2 className="text-lg font-medium text-gray-900">Contact Information</h2>
-            <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {/* Header */}
               <div>
-                <h3 className="text-sm font-medium text-gray-500">Email</h3>
-                <p className="mt-1 text-sm text-gray-900">support@tradeline.com</p>
-              </div>
-              <div>
-                <h3 className="text-sm font-medium text-gray-500">Phone</h3>
-                <p className="mt-1 text-sm text-gray-900">+1 (555) 123-4567</p>
-              </div>
-              <div>
-                <h3 className="text-sm font-medium text-gray-500">Address</h3>
-                <p className="mt-1 text-sm text-gray-900">
-                  123 Trade Street<br />
-                  New York, NY 10001
+                <span className="inline-flex items-center justify-center px-5 py-2.5 mb-4 md:mb-6 text-xs md:text-sm font-semibold tracking-wide rounded-full overflow-hidden bg-blue-50 border border-blue-300 text-blue-700">
+                  Contact Us
+                </span>
+
+                <h2 className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent text-3xl md:text-5xl font-bold">
+                  Get in Touch
+                </h2>
+
+                <p className="mt-4 md:mt-6 text-black text-base md:text-xl leading-relaxed">
+                  Let's collaborate and craft something extraordinary together. Share your vision—I'm all ears and ready to help bring it to life.
                 </p>
               </div>
-              <div>
-                <h3 className="text-sm font-medium text-gray-500">Business Hours</h3>
-                <p className="mt-1 text-sm text-gray-900">
-                  Monday - Friday: 9:00 AM - 6:00 PM EST<br />
-                  Saturday: 10:00 AM - 4:00 PM EST
+
+              {/* Message Card */}
+              <div className="relative bg-white/90 rounded-2xl p-6 md:p-10 shadow-xl border border-blue-100 overflow-hidden">
+                <div className="absolute -top-10 -right-10 w-24 h-24 bg-blue-500/10 rounded-full blur-xl"></div>
+                <div className="absolute -bottom-10 -left-10 w-20 h-20 bg-blue-500/10 rounded-full blur-xl"></div>
+
+                <div className="flex items-center gap-4 mb-4 md:mb-6 relative z-10">
+                  <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-2.5 rounded-xl shadow-md">
+                    <svg
+                      className="w-5 h-5 md:w-6 md:h-6 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                      />
+                    </svg>
+                  </div>
+                  <p className="text-xl md:text-2xl font-bold text-gray-800">
+                    Ready to Step Into the Private?
+                  </p>
+                </div>
+
+                <p className="text-base md:text-lg leading-relaxed text-gray-700 relative z-10">
+                  One message can change your life. We'll guide you with clarity, strategy, and purpose.
                 </p>
               </div>
             </div>
+
+            {/* RIGHT COLUMN – FORM */}
+            <div className="w-full h-auto lg:h-[600px] flex items-start">
+              {!isFormLoaded && (
+                <div className="w-full h-[400px] lg:h-full bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl animate-pulse flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-12 h-12 border-4 border-blue-300 border-t-blue-500 rounded-full animate-spin mx-auto mb-4"></div>
+                    <p className="text-gray-500">Loading form...</p>
+                  </div>
+                </div>
+              )}
+
+              {isMounted && (
+                <iframe
+                  src="https://api.wonderengine.ai/widget/form/o69tKOXv3NV8GnS4aGls"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    border: "none",
+                    borderRadius: "16px",
+                    display: isFormLoaded ? "block" : "none",
+                  }}
+                  title="Contact us form"
+                  onLoad={() => setIsFormLoaded(true)}
+                />
+              )}
+
+              {isMounted && (
+                <Script
+                  src="https://api.wonderengine.ai/js/form_embed.js"
+                  strategy="afterInteractive"
+                />
+              )}
+            </div>
+
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

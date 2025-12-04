@@ -1,63 +1,105 @@
 'use client';
 
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { FaBullseye, FaEye } from 'react-icons/fa';
+import { RiTeamLine } from 'react-icons/ri';
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="bg-gray-50 min-h-screen py-16 md:py-34 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center">
-          <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+        {/* HEADER */}
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
+        >
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent">
             About Us
           </h1>
-        </div>
+          <p className="mt-4 md:mt-6 text-gray-700 max-w-3xl mx-auto text-lg md:text-xl">
+            Discover Tradeline Supply Company, LLC — our vision, mission, and innovative fintech solutions in the tradeline industry.
+          </p>
+        </motion.div>
 
-        <div className="mt-16">
-          <div className="bg-white shadow overflow-hidden sm:rounded-lg">
-            <div className="px-4 py-8 sm:px-6">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Tradeline Supply Company, LLC</h2>
-                  <p className="text-gray-700 mb-6">
-                    Tradeline Supply Company, LLC is the leading niche fintech platform designed exclusively for the tradeline industry. 
-                    Over the years we have built the highest quality peer-to-peer tradeline marketplace, servicing direct-to-consumer 
-                    businesses and supporting the secondary tradeline reseller market.
-                  </p>
-                </div>
-                <div className="relative h-64 md:h-80 rounded-lg overflow-hidden">
-                  <Image
-                    src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                    alt="Financial growth and credit building"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                </div>
-              </div>
-            </div>
+        {/* COMPANY STORY */}
+        <motion.div
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          transition={{ duration: 0.8 }}
+          className="grid md:grid-cols-2 gap-12 md:gap-16 items-center mb-20"
+        >
+          <div className="space-y-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 hover:text-blue-600 transition">
+              Tradeline Supply Company, LLC
+            </h2>
+            <p className="text-gray-700 leading-relaxed md:text-lg">
+              Tradeline Supply Company, LLC is the leading niche fintech platform dedicated to the tradeline industry. 
+              We provide the highest quality peer-to-peer tradeline marketplace for consumers and resellers alike.
+            </p>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              className="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition"
+            >
+              Learn More
+            </motion.button>
           </div>
+          <div className="relative h-80 md:h-96 w-full rounded-2xl overflow-hidden shadow-xl group cursor-pointer">
+            <Image
+              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+              alt="Financial growth and credit building"
+              fill
+              className="object-cover transform group-hover:scale-105 transition duration-500"
+              priority
+            />
+          </div>
+        </motion.div>
 
-          <div className="mt-8 bg-white shadow overflow-hidden sm:rounded-lg">
-            <div className="px-6 py-8">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="border-l-4 border-blue-600 pl-6">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Mission Statement</h2>
-                  <p className="text-gray-700">
-                    Tradeline Supply Company, LLC aims to reduce financial inequalities and promote equal credit opportunity 
-                    by advocating for the rights of our clients to have access to the same credit-building techniques that 
-                    many others have had access to for over 40 years.
-                  </p>
-                </div>
-                <div className="border-l-4 border-blue-600 pl-6">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Vision Statement</h2>
-                  <p className="text-gray-700">
-                    Tradeline Supply Company, LLC seeks to enlighten and empower all Americans with financial knowledge and 
-                    access to resources that historically have only been available to affluent members of society.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+        {/* MISSION, VISION, TEAM */}
+        <div className="grid md:grid-cols-3 gap-8">
+          {/* Mission */}
+          <motion.div
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.6 }}
+            className="bg-white rounded-3xl p-8 md:p-10 shadow-lg border-l-4 border-blue-600 hover:shadow-2xl transition relative cursor-pointer"
+          >
+            <FaBullseye className="absolute -top-5 -left-5 w-12 h-12 text-blue-500 bg-white p-2 rounded-full shadow-md" />
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Mission</h3>
+            <p className="text-gray-700 leading-relaxed">
+              Our mission is to reduce financial inequalities and provide equal credit-building opportunities to all Americans.
+            </p>
+          </motion.div>
+
+          {/* Vision */}
+          <motion.div
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="bg-white rounded-3xl p-8 md:p-10 shadow-lg border-l-4 border-blue-600 hover:shadow-2xl transition relative cursor-pointer"
+          >
+            <FaEye className="absolute -top-5 -left-5 w-12 h-12 text-blue-500 bg-white p-2 rounded-full shadow-md" />
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Vision</h3>
+            <p className="text-gray-700 leading-relaxed">
+              We aim to empower Americans with financial knowledge and resources historically available only to affluent communities.
+            </p>
+          </motion.div>
+
+          {/* Team */}
+          <motion.div
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-white rounded-3xl p-8 md:p-10 shadow-lg border-l-4 border-blue-600 hover:shadow-2xl transition relative cursor-pointer"
+          >
+            <RiTeamLine className="absolute -top-5 -left-5 w-12 h-12 text-blue-500 bg-white p-2 rounded-full shadow-md" />
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Team</h3>
+            <p className="text-gray-700 leading-relaxed">
+              Our team is composed of fintech and credit experts dedicated to creating a fair, transparent, and effective tradeline ecosystem.
+            </p>
+          </motion.div>
         </div>
       </div>
     </div>
