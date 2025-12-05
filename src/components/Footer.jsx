@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function ContactPage() {
   return (
-    <div className="bg-[#1F2629] text-white py-20 px-6">
+    <div className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white py-20 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-16">
 
         {/* LEFT SECTION */}
@@ -81,7 +81,7 @@ export default function ContactPage() {
             Follow us on social media to stay updated with our latest news and offerings.
           </p>
 
-          <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3">
             {[
               { name: 'Facebook', href: 'https://www.facebook.com/groups/1455118361753321/', icon: '/images/footer/facebook.webp' },
               { name: 'X', href: 'https://x.com/CreditorAcademy', icon: '/images/footer/twitter.webp' },
@@ -89,13 +89,16 @@ export default function ContactPage() {
               { name: 'Rumble', href: 'https://rumble.com/user/CreditorAcademy', icon: '/images/footer/rumble.webp' },
               { name: 'TikTok', href: 'https://www.tiktok.com/@creditoracademy', icon: '/images/footer/tiktok.webp' },
             ].map((s) => (
-              <button
+              <a
                 key={s.name}
+                href={s.href}
+                rel="noreferrer"
+                target="_blank"
                 className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-blue-500 transition"
               >
                 <Image src={s.icon} alt={s.name} width={18} height={18} />
                 {s.name}
-              </button>
+              </a>
             ))}
           </div>
         </div>

@@ -1,13 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-import Link from "next/link"; // ⭐ Next.js Link
+import { Menu, X, Moon } from "lucide-react";
+import Link from "next/link";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
   const [visible, setVisible] = useState(true);
   const [lastScroll, setLastScroll] = useState(0);
+  const [autoClose, setAutoClose] = useState(false);
 
   const links = [
     { name: "HOME", path: "/" },
@@ -20,77 +21,140 @@ export default function Navbar() {
     { name: "MY ACCOUNT", path: "/my-account" },
   ];
 
-  // Hide Navbar on Scroll
+  // Hide navbar on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const currentScroll = window.scrollY;
-
-      if (currentScroll > lastScroll && currentScroll > 80) {
+      const scrollY = window.scrollY;
+      if (scrollY > lastScroll && scrollY > 100) {
         setVisible(false);
       } else {
         setVisible(true);
       }
-
-      setLastScroll(currentScroll);
+      setLastScroll(scrollY);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScroll]);
 
+  // Auto-close mobile menu
+  useEffect(() => {
+    if (openMenu && !autoClose) {
+      const timer = setTimeout(() => {
+        setAutoClose(true);
+        setTimeout(() => {
+          setOpenMenu(false);
+          setAutoClose(false);
+        }, 600);
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [openMenu, autoClose]);
+
+  const handleMenuClick = () => {
+    setOpenMenu(false);
+    setAutoClose(false);
+  };
+
   return (
     <header
-      className={`w-full py-3 bg-gradient-to-r bg-blue-600 shadow-lg fixed top-0 z-50 transition-transform duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         visible ? "translate-y-0" : "-translate-y-full"
+      } ${
+        openMenu
+          ? "h-screen bg-blue-700"
+          : "h-20 bg-blue-700/90 backdrop-blur-md"
       }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        {/* Logo */}
-        <h1 className="text-2xl font-extrabold text-white tracking-wide drop-shadow">
-          TRADELINE
-        </h1>
+      {/* Bottom line */}
+      {/* {!openMenu && (
+        <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-500 to-blue-800"></div>
+      )} */}
 
-        {/* Desktop Menu */}
-        <nav className="hidden md:flex space-x-8">
-          {links.map((item) => (
-            <Link
-              key={item.name}
-              href={item.path}
-              className="text-white font-medium hover:text-black transition duration-200"
+      <div className="max-w-8xl mx-auto h-full flex flex-col">
+        {/* TOP BAR */}
+        <div className="flex items-center justify-between px-4 sm:px-8 py-4 h-20">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2">
+            <h1 className="text-xl sm:text-2xl font-extrabold text-white tracking-wide">
+              TRADELINE
+            </h1>
+          </Link>
+
+          {/* Right buttons */}
+          <div className="flex items-center gap-4 sm:gap-6">
+
+            {/* Hide sign up/sign in on very small screens */}
+            <div className="hidden sm:flex items-center gap-6">
+              <Link
+                href="/signup"
+                className="px-5 py-2 text-white text-lg font-medium hover:text-white/80 transition"
+              >
+                Sign Up
+              </Link>
+
+              <Link
+                href="/signin"
+                className="px-6 py-2.5 bg-white/20 hover:bg-white/30 text-white text-lg font-semibold rounded-full transition"
+              >
+                Sign In
+              </Link>
+            </div>
+
+            <button className="text-white hover:text-white/80 transition p-2 hidden sm:block">
+              <Moon size={26} />
+            </button>
+
+            {/* MOBILE TOGGLE */}
+            <button
+              onClick={() => setOpenMenu(!openMenu)}
+              className="text-white hover:text-white/80 transition p-2"
             >
-              {item.name}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden text-white"
-        >
-          {open ? <X size={30} /> : <Menu size={30} />}
-        </button>
-      </div>
-
-      {/* Mobile Dropdown */}
-      <div
-        className={`md:hidden bg-white/20 backdrop-blur-md shadow-xl overflow-hidden transition-all duration-300 ${
-          open ? "max-h-96 py-4" : "max-h-0"
-        }`}
-      >
-        <div className="px-6 space-y-4">
-          {links.map((item) => (
-            <Link
-              key={item.name}
-              href={item.path}
-              onClick={() => setOpen(false)}
-              className="block text-white font-medium hover:text-blue-200 transition duration-200"
-            >
-              {item.name}
-            </Link>
-          ))}
+              {openMenu ? <X size={32} /> : <Menu size={32} />}
+            </button>
+          </div>
         </div>
+
+        {/* FULLSCREEN MOBILE MENU */}
+        {openMenu && (
+          <nav className="flex-1 flex flex-col items-center justify-center gap-8 px-4">
+            {links.map((item) => (
+              <Link
+                key={item.name}
+                href={item.path}
+                onClick={handleMenuClick}
+                className="text-3xl text-white font-semibold hover:text-white/70 transition text-center"
+              >
+                {item.name}
+              </Link>
+            ))}
+
+            {/* Show sign in/up inside mobile menu */}
+            <div className="flex flex-col gap-4 mt-8 w-full max-w-xs">
+              <Link
+                href="/signup"
+                onClick={handleMenuClick}
+                className="text-center px-6 py-3 bg-white/20 hover:bg-white/30 text-white text-xl font-medium rounded-full transition"
+              >
+                Sign Up
+              </Link>
+
+              <Link
+                href="/signin"
+                onClick={handleMenuClick}
+                className="text-center px-6 py-3 bg-white text-blue-700 text-xl font-semibold rounded-full transition"
+              >
+                Sign In
+              </Link>
+            </div>
+          </nav>
+        )}
       </div>
+
+      {/* Bottom border when open */}
+      {openMenu && (
+        <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-500 to-blue-800"></div>
+      )}
     </header>
   );
 }

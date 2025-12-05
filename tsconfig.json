@@ -32,3 +32,4 @@
 , "src/app/page.jsx", "src/components/Footer.jsx"  ],
   "exclude": ["node_modules"]
 }
+
