@@ -5,10 +5,10 @@ import Link from "next/link";
 
 const BrokersPage = () => {
   return (
-    <div className="w-full bg-slate-950/5">
+    <div className="w-full bg-slate-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20">
         {/* ================= HERO (DARK BAND) ================= */}
-        <section className="mb-14 rounded-3xl bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-50 px-5 sm:px-8 py-10 md:py-12">
+        <section className="mb-14 rounded-3xl bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-50 px-5 sm:px-8 py-10 md:py-12 shadow-[0_24px_60px_rgba(15,23,42,0.45)]">
           <div className="grid gap-8 lg:grid-cols-[1.3fr_minmax(0,1fr)] items-center">
             {/* Left: main hero copy */}
             <div>
@@ -254,8 +254,8 @@ const BrokersPage = () => {
           </div>
         </section>
 
-        {/* ================= PRICING (DARK SECTION) ================= */}
-        <section className="mt-16 rounded-3xl bg-slate-950 text-slate-50 px-5 sm:px-8 py-10 md:py-12">
+        {/* ================= PRICING (DARK, BUT LIGHTER FEEL) ================= */}
+        <section className="mt-16 rounded-3xl bg-slate-900 text-slate-50 px-5 sm:px-8 py-10 md:py-12 shadow-[0_24px_60px_rgba(15,23,42,0.45)]">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-5">
             <div>
               <h2 className="text-2xl md:text-3xl font-bold text-slate-50">
@@ -271,9 +271,9 @@ const BrokersPage = () => {
             </p>
           </div>
 
-          <div className="bg-slate-900 shadow-[0_18px_40px_rgba(0,0,0,0.55)] rounded-2xl overflow-hidden border border-slate-800">
+          <div className="bg-slate-950/80 rounded-2xl overflow-hidden border border-slate-800">
             <table className="min-w-full text-sm">
-              <thead className="bg-slate-800/90">
+              <thead className="bg-slate-900">
                 <tr>
                   <th className="px-6 py-3 text-left text-[11px] font-semibold text-slate-200 uppercase tracking-[0.16em]">
                     Lifetime Volume
