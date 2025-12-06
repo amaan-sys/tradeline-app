@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function ContactPage() {
   return (
-    <div className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white py-20 px-6">
+    <div className="bg-gradient-to-br bg-gray-900 text-white py-20 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-16">
 
         {/* LEFT SECTION */}
