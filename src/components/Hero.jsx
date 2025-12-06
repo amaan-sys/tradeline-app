@@ -20,10 +20,9 @@ export default function Home() {
   return (
     <div className="w-full overflow-hidden text-gray-800">
 
-      {/* ===================== HERO SECTION REDESIGNED ===================== */}
       {/* ===================== HERO SECTION REDESIGNED CINEMATIC ===================== */}
       <section
-        className="relative w-full h-screen bg-cover bg-center flex items-center"
+        className="relative w-full h-screen bg-cover bg-center flex items-center mt-10"
         style={{ backgroundImage: "url('/trdee.jpg')" }}
       >
         {/* Dark Cinematic Overlay */}
@@ -133,190 +132,289 @@ export default function Home() {
 
 
       {/* ===================== ABOUT SECTION (Redesigned with Cards) ===================== */}
-      <section className="relative py-28 px-6 bg-gradient-to-b from-white to-blue-50 overflow-hidden">
-        {/* Floating Background Elements */}
+      {/* ===================== ABOUT SECTION (Professional Light Theme) ===================== */}
+      <section className="relative py-20 px-6 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 overflow-hidden">
+        {/* Subtle Background Orbs */}
         <motion.div
-          animate={{ y: [0, -30, 0] }}
-          transition={{ repeat: Infinity, duration: 6 }}
-          className="absolute top-20 right-10 w-80 h-80 bg-cyan-200/10 rounded-full blur-3xl pointer-events-none"
+          animate={{
+            y: [0, -20, 0],
+            x: [0, 10, 0]
+          }}
+          transition={{ repeat: Infinity, duration: 12 }}
+          className="absolute top-24 right-24 w-80 h-80 bg-gradient-to-br from-cyan-200/20 to-blue-300/20 rounded-full blur-3xl pointer-events-none"
         />
         <motion.div
-          animate={{ y: [0, 30, 0] }}
-          transition={{ repeat: Infinity, duration: 8, delay: 1 }}
-          className="absolute bottom-0 left-10 w-96 h-96 bg-blue-200/10 rounded-full blur-3xl pointer-events-none"
+          animate={{
+            y: [0, 20, 0],
+            x: [0, -10, 0]
+          }}
+          transition={{ repeat: Infinity, duration: 14, delay: 2 }}
+          className="absolute -bottom-16 -left-16 w-80 h-80 bg-gradient-to-tr from-blue-200/20 to-indigo-200/20 rounded-full blur-3xl pointer-events-none"
         />
 
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="max-w-6xl mx-auto relative z-10">
           {/* HEADER */}
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <div className="inline-block px-4 py-2 bg-cyan-50 border border-cyan-200 rounded-full mb-4">
-              <span className="text-sm font-semibold text-cyan-700">About Us</span>
+            <div className="inline-block mb-6 px-6 py-3 bg-gradient-to-r from-cyan-100 to-blue-100 rounded-full border border-cyan-200">
+              <span className="text-sm font-semibold text-gray-800">About Us</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Leading Through Innovation & Purpose
+
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+              About <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">Tradeline Supply</span>
             </h2>
+
+            <p className="text-gray-700 text-lg max-w-2xl mx-auto leading-relaxed">
+              Pioneering fair access to financial opportunities through innovation and transparency.
+            </p>
           </motion.div>
 
-          {/* TWO-COLUMN LAYOUT: Image + Content Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* LEFT: Large Image */}
+          {/* PROFESSIONAL THREE-COLUMN CARDS */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {/* Card 1 */}
             <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="group p-8 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
             >
-              <motion.div
-                whileHover={{ scale: 1.03, y: -15 }}
-                transition={{ type: "spring", stiffness: 150 }}
-                className="relative rounded-3xl overflow-hidden shadow-2xl group"
-              >
-                <Image
-                  src="/about2.jpg"
-                  alt="about"
-                  width={600}
-                  height={500}
-                  className="w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 " />
-              </motion.div>
-
-              <Link href="/projects" className="w-full flex items-center justify-center gap-2 px-6 py-5 mt-10 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl hover:shadow-lg transition-all">
-                Learn More About Us
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
-              </Link>
-              
-            </motion.div>
-
-
-            {/* RIGHT: Content Cards Stacked */}
-            <div className="space-y-5">
-              {/* Card 1 */}
-              <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-                className="p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all"
-              >
-                <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
-                  <span className="text-2xl">🚀</span> Pioneer Innovation
-                </h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Tradeline Supply Company, LLC is a pioneer in making it possible for consumers to purchase authorized user tradelines 100% online with an easy automated checkout process. By leveraging innovative technology, we have been able to cut costs and streamline the process, which ultimately makes this product available to more consumers.
-                </p>
-              </motion.div>
-
-              {/* Card 2 */}
-              <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all"
-              >
-                <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
-                  <span className="text-2xl">⚖️</span> Fair Opportunity
-                </h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Tradeline Supply Company, LLC is not a credit repair company, does not advertise this product for the purpose of boosting credit scores. Its products do not directly impact credit scores. There is no guarantee of any improvements to credit in any way. Instead, we are simply fighting for the rights of our customers to have the same opportunities as other more privileged Americans who have friends and family to provide them with this product. Additionally, we provide free education and tools to learn about credit and finances in order to empower people to make the best choices possible.
-                </p>
-              </motion.div>
-
-              {/* CTA Button */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                whileHover={{ scale: 1.05 }}
-                className="pt-2"
-              >
-                {/* <Link href="/projects" className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl hover:shadow-lg transition-all">
-                  Learn More About Us
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
-                </Link> */}
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===================== EQUAL OPPORTUNITY SECTION (Redesigned) ===================== */}
-      <section className="relative py-20 px-6 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          {/* HEADER */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Providing
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500"> Equal Opportunity</span>
-            </h2>
-          </motion.div>
-
-          {/* GRID: Image + Content */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* LEFT: Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <motion.div
-                whileHover={{ scale: 1.02, rotate: -1 }}
-                className="relative rounded-2xl overflow-hidden shadow-lg"
-              >
-                <Image
-                  src="/whitehero.jpg"
-                  width={700}
-                  height={500}
-                  alt="equal opportunity"
-                  className="w-full object-cover aspect-video group-hover:brightness-110 transition-all duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-              </motion.div>
-            </motion.div>
-
-            {/* RIGHT: Content */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="space-y-6"
-            >
-              <div className="space-y-4">
-                <p className="text-gray-700 text-lg leading-relaxed">
-                  Traditionally, many parents have been advised to add their kids to their credit cards as authorized users to give them a head start in life. Sadly, not everyone has a parent with good credit to do that. Additionally, a large scale study of 300,000 credit profiles concluded that approximately one-third of our entire nation has one or more authorized user tradelines in their credit file. This same study pointed out that minorities and the lower demographic sectors were less likely to have these types of tradelines, which is further evidence of the inequality that exists in our financial system.
-                </p>
-
-                <p className="text-gray-700 text-lg leading-relaxed">
-                  Tradeline Supply Company, LLC helps reduce this inequality by providing an equal opportunity for those who were not fortunate enough to have a friend or family member provide such a favor.
-                </p>
+              <div className="w-20 h-20 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                <span className="text-3xl">🚀</span>
               </div>
 
-              <motion.div className="pt-4" whileHover={{ scale: 1.05 }}>
-                <Link href="/projects" className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-lg hover:shadow-lg transition-all">
-                  Get Started
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
-                </Link>
-              </motion.div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
+                Innovative Access
+              </h3>
+
+              <p className="text-gray-600 text-sm leading-relaxed text-center">
+                Streamlined authorized user tradelines available 100% online with automated checkout for easy access.
+              </p>
+            </motion.div>
+
+            {/* Card 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="group p-8 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
+            >
+              <div className="w-20 h-20 bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                <span className="text-3xl">⚖️</span>
+              </div>
+
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
+                Fair Opportunity
+              </h3>
+
+              <p className="text-gray-600 text-sm leading-relaxed text-center">
+                Equal financial opportunities for all through education and transparent financial tools.
+              </p>
+            </motion.div>
+
+            {/* Card 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="group p-8 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
+            >
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                <span className="text-3xl">💡</span>
+              </div>
+
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
+                Financial Empowerment
+              </h3>
+
+              <p className="text-gray-600 text-sm leading-relaxed text-center">
+                Free education and tools to understand credit and make informed financial decisions.
+              </p>
             </motion.div>
           </div>
+
+          {/* PROFESSIONAL CTA */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex justify-center"
+          >
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-3 px-10 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-transparent hover:border-cyan-200"
+            >
+              Explore Our Mission
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </Link>
+          </motion.div>
         </div>
       </section>
+
+
+ {/* ===================== PREMIUM EXECUTIVE SECTION ===================== */}
+<section className="relative py-24 px-8 overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-blue-900/50 to-transparent">
+  {/* Dynamic Grid Pattern */}
+  <div className="absolute inset-0 opacity-10">
+    <div className="absolute inset-0 [background-image:linear-gradient(rgba(99,102,241,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,0.1)_1px,transparent_1px)] [background-size:40px_40px]"></div>
+  </div>
+
+  {/* Floating Geometric Elements */}
+  <motion.div 
+    animate={{ y: [0, -30, 0], rotate: [0, 10, 0] }}
+    transition={{ repeat: Infinity, duration: 16 }}
+    className="absolute top-20 left-20 w-32 h-32 bg-cyan-400/10 rounded-3xl border border-cyan-500/20 backdrop-blur-xl"
+  />
+  <motion.div 
+    animate={{ y: [0, 30, 0], rotate: [0, -10, 0] }}
+    transition={{ repeat: Infinity, duration: 20, delay: 4 }}
+    className="absolute bottom-32 right-24 w-40 h-40 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-2xl border border-purple-500/20 backdrop-blur-xl"
+  />
+
+  <div className="relative z-10 max-w-7xl mx-auto">
+    {/* Premium Header */}
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      className="text-center mb-20"
+    >
+      <div className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-400/30 rounded-3xl backdrop-blur-xl mb-8 shadow-xl">
+        <div className="w-3 h-3 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full animate-pulse" />
+        <span className="text-lg font-bold text-white tracking-wider uppercase">Mission Statement</span>
+      </div>
+      
+      <div className="space-y-4">
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent leading-[0.9] tracking-tight">
+          Equal Access
+        </h1>
+        <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent drop-shadow-2xl">
+          Credit Freedom
+        </div>
+        <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed font-light">
+          Breaking systemic barriers with secure tradeline access for all Americans.
+        </p>
+      </div>
+    </motion.div>
+
+    {/* Asymmetric KPI Cards */}
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-20">
+      {/* Main KPI Tower */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="lg:col-span-4 p-10 bg-gradient-to-b from-white/5 to-black/20 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500"
+      >
+        <div className="text-6xl mb-6 opacity-75">📈</div>
+        <div className="text-5xl font-black mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+          33<span className="text-3xl">%</span>
+        </div>
+        <p className="text-gray-400 text-lg font-medium">Americans<br/>with Tradelines</p>
+      </motion.div>
+
+      {/* Secondary Metrics */}
+      <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[
+          { num: "100K+", label: "Profiles Studied", icon: "🔬" },
+          { num: "✓ Verified", label: "Secure Trades", icon: "🔒" },
+          { num: "24/7", label: "Live Access", icon: "⚡" },
+          { num: "0% Risk", label: "Guaranteed Safe", icon: "🛡️" }
+        ].map((metric, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 + i * 0.1 }}
+            className="group p-8 bg-white/3 backdrop-blur-xl rounded-2xl border border-white/5 hover:border-cyan-400/30 hover:bg-white/5 transition-all duration-400 cursor-pointer"
+          >
+            <div className="text-3xl mb-4 opacity-80">{metric.icon}</div>
+            <div className="text-2xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">
+              {metric.num}
+            </div>
+            <p className="text-gray-500 text-sm font-medium group-hover:text-gray-300 transition-colors">
+              {metric.label}
+            </p>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+
+    {/* Premium Dual Reveal Cards */}
+    <div className="grid lg:grid-cols-2 gap-8 mb-24">
+      {/* Challenge Card */}
+      <motion.div
+        initial={{ opacity: 0, x: -60 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        className="group relative p-12 rounded-3xl bg-gradient-to-br from-slate-800/50 to-gray-900/50 backdrop-blur-3xl border border-white/5 shadow-2xl overflow-hidden hover:shadow-[0_35px_60px_-15px_rgba(239,68,68,0.3)] transition-all duration-700"
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-red-500/5 to-orange-500/5 -skew-x-3 -translate-x-[100%] group-hover:translate-x-[0%] transition-transform duration-1000" />
+        <div className="relative z-10">
+          <div className="w-20 h-20 bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <span className="text-3xl">⚖️</span>
+          </div>
+          <h3 className="text-3xl font-black text-white mb-6 tracking-tight">Systemic Exclusion</h3>
+          <p className="text-gray-300 text-lg leading-relaxed max-w-md">
+            67% of Americans lack access to generational wealth-building tools.
+          </p>
+        </div>
+      </motion.div>
+
+      {/* Solution Card */}
+      <motion.div
+        initial={{ opacity: 0, x: 60 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.2 }}
+        className="group relative p-12 rounded-3xl bg-gradient-to-br from-cyan-500/10 via-blue-500/5 to-purple-500/10 backdrop-blur-3xl border border-cyan-400/20 shadow-2xl overflow-hidden hover:shadow-[0_35px_60px_-15px_rgba(34,197,94,0.4)] transition-all duration-700"
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 -skew-x-3 translate-x-[100%] group-hover:translate-x-[0%] transition-transform duration-1000" />
+        <div className="relative z-10">
+          <div className="w-20 h-20 bg-gradient-to-br from-emerald-400/30 to-cyan-400/30 rounded-2xl flex items-center justify-center mb-8 shadow-xl group-hover:scale-110 transition-transform duration-300">
+            <span className="text-3xl">🚀</span>
+          </div>
+          <h3 className="text-3xl font-black text-white mb-6 tracking-tight">Universal Access</h3>
+          <p className="text-gray-300 text-lg leading-relaxed max-w-md">
+            Enterprise-grade platform delivering verified tradelines to every citizen.
+          </p>
+        </div>
+      </motion.div>
+    </div>
+
+    {/* Hero CTA */}
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      className="text-center"
+    >
+      <Link
+        href="/tradelines"
+        className="group relative inline-flex items-center gap-4 px-12 py-6 bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 text-white font-black text-xl rounded-3xl shadow-2xl border border-white/20 backdrop-blur-xl overflow-hidden hover:shadow-[0_0_0_0_100px_rgba(34,197,94,0.3)] hover:shadow-emerald-500/50 transition-all duration-700"
+      >
+        <span className="absolute inset-0 bg-gradient-to-r from-emerald-400/50 to-cyan-400/50 -translate-x-full group-hover:translate-x-0 transition-transform duration-700" />
+        <span className="relative">
+          Claim Your Advantage
+        </span>
+        <motion.svg 
+          animate={{ x: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 2 }}
+          className="w-6 h-6 relative"
+          fill="none" stroke="currentColor" viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </motion.svg>
+      </Link>
+    </motion.div>
+  </div>
+</section>
 
 
 
