@@ -7,7 +7,8 @@ import { RiTeamLine } from 'react-icons/ri';
 
 export default function AboutPage() {
   return (
-    <div className="bg-slate-950/5 min-h-screen py-20 md:py-28 px-6 md:px-12">
+    // ⬅️ MAIN WRAPPER MADE LIGHT
+    <div className="bg-slate-50 min-h-screen py-20 md:py-28 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
 
         {/* ================= HERO (DARK, PREMIUM) ================= */}
@@ -18,8 +19,8 @@ export default function AboutPage() {
           className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 rounded-3xl px-8 py-16 md:px-14 md:py-20 text-center shadow-[0_25px_80px_rgba(0,0,0,0.55)] mb-24 relative overflow-hidden"
         >
           {/* Glow accents */}
-          <div className="absolute -top-10 -left-10 w-60 h-60 bg-blue-600/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-60 h-60 bg-sky-500/20 rounded-full blur-3xl"></div>
+          <div className="absolute -top-10 -left-10 w-60 h-60 bg-blue-600/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-60 h-60 bg-sky-500/20 rounded-full blur-3xl" />
 
           <motion.h1
             initial={{ opacity: 0 }}
