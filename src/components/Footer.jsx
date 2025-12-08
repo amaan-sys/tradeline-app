@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Facebook, Twitter, Youtube, Rss, MessageSquare } from "lucide-react";
 
 export default function ContactPage() {
   return (
@@ -82,24 +83,53 @@ export default function ContactPage() {
           </p>
 
             <div className="flex flex-wrap gap-3">
-            {[
-              { name: 'Facebook', href: 'https://www.facebook.com/groups/1455118361753321/', icon: '/images/footer/facebook.webp' },
-              { name: 'X', href: 'https://x.com/CreditorAcademy', icon: '/images/footer/twitter.webp' },
-              { name: 'YouTube', href: 'https://www.youtube.com/@creditoracademy', icon: '/images/footer/youtube.webp' },
-              { name: 'Rumble', href: 'https://rumble.com/user/CreditorAcademy', icon: '/images/footer/rumble.webp' },
-              { name: 'TikTok', href: 'https://www.tiktok.com/@creditoracademy', icon: '/images/footer/tiktok.webp' },
-            ].map((s) => (
+            <div className="flex gap-4">
               <a
-                key={s.name}
-                href={s.href}
-                rel="noreferrer"
+                href="https://www.facebook.com/groups/1455118361753321/"
                 target="_blank"
-                className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-blue-500 transition"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-white/10 hover:bg-blue-600 transition-colors"
+                aria-label="Facebook"
               >
-                <Image src={s.icon} alt={s.name} width={18} height={18} />
-                {s.name}
+                <Facebook className="w-5 h-5" />
               </a>
-            ))}
+              <a
+                href="https://x.com/CreditorAcademy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-white/10 hover:bg-black transition-colors"
+                aria-label="Twitter"
+              >
+                <Twitter className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.youtube.com/@creditoracademy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-white/10 hover:bg-red-600 transition-colors"
+                aria-label="YouTube"
+              >
+                <Youtube className="w-5 h-5" />
+              </a>
+              <a
+                href="https://rumble.com/user/CreditorAcademy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-white/10 hover:bg-orange-500 transition-colors"
+                aria-label="Rumble"
+              >
+                <Rss className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.tiktok.com/@creditoracademy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-white/10 hover:bg-pink-500 transition-colors"
+                aria-label="TikTok"
+              >
+                <MessageSquare className="w-5 h-5" />
+              </a>
+            </div>
           </div>
         </div>
 
