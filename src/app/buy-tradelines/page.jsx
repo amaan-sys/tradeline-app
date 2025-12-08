@@ -3,6 +3,15 @@
 import React, { useMemo, useState } from "react";
 import { ShoppingCart, CheckCircle2, ArrowUpDown, Filter } from "lucide-react";
 
+// Add this style for hiding scrollbar
+const hideScrollbar = {
+  scrollbarWidth: 'none', // For Firefox
+  msOverflowStyle: 'none', // For IE and Edge
+  '&::-webkit-scrollbar': {
+    display: 'none', // For Chrome, Safari, and Opera
+  },
+};
+
 export default function BuyTradeline() {
   const [tradelines] = useState([
     { id: 1, bank: "Chase", bankShort: "Chase", cardId: 25235, limit: 5000, opened: "2020 Feb", deadline: "Dec 31st", reporting: "Jan 11th - Jan 18th", availability: 1, price: 327.6 },
@@ -93,7 +102,7 @@ export default function BuyTradeline() {
         {/* FILTER / SORT BAR */}
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 rounded-2xl border border-slate-200 bg-white/80 shadow-sm px-4 py-3 md:px-5 md:py-4">
           {/* Bank filter buttons */}
-          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
+          <div className="flex items-center gap-2 overflow-x-auto hide-scrollbar">
             <span className="text-xs font-semibold text-slate-500 mr-1 whitespace-nowrap">
               Bank:
             </span>
@@ -133,7 +142,7 @@ export default function BuyTradeline() {
 
         {/* DESKTOP TABLE */}
         <div className="hidden md:block mt-8 rounded-2xl border border-slate-200 bg-white/80 shadow-[0_20px_45px_rgba(15,23,42,0.08)] overflow-hidden">
-          <div className="max-h-[70vh] overflow-auto">
+          <div className="max-h-[70vh] overflow-auto hide-scrollbar">
             <table className="min-w-full text-sm">
               <thead className="bg-sky-50 sticky top-0 z-10">
                 <tr>
@@ -242,7 +251,7 @@ export default function BuyTradeline() {
         </div>
 
         {/* MOBILE CARDS */}
-        <div className="grid md:hidden gap-5 mt-8">
+        <div className="grid md:hidden gap-5 mt-8 hide-scrollbar" style={{ maxHeight: '70vh', overflowY: 'auto' }}>
           {filtered.map((item, idx) => {
             const featured = idx === 0 && bankFilter === "All";
             return (
