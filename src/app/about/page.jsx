@@ -200,7 +200,7 @@ export default function AboutPage() {
               <MdScience className="text-white text-2xl mr-3" />
               <span className="text-white font-semibold text-lg">Data-Driven Approach</span>
             </motion.div>
-            <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">Our Scientific Methodology</h2>
+            <h2 className="text-4xl font-bold text-slate-900 dark:text-black mb-4">Our Scientific Methodology</h2>
             <p className="text-slate-600 dark:text-slate-300 max-w-3xl mx-auto text-lg">
               We apply rigorous scientific methods to decode and optimize your credit profile
             </p>

@@ -31,7 +31,7 @@ export default function Hero() {
   return (
     <div className="w-full bg-slate-950 text-slate-900">
       {/* ===================== SECTION 1 – HERO (DARK BLUE) ===================== */}
-      <section className="relative min-h-[90vh] flex items-center justify-center px-6 md:px-10 lg:px-16 pt-24 overflow-hidden bg-gradient-to-br from-slate-950 via-slate-950 to-slate-900">
+      <section className="relative min-h-[90vh] flex items-center justify-center px-6 md:px-10 lg:px-16 pt-26 pb-8 overflow-hidden bg-gradient-to-br from-slate-950 via-slate-950 to-slate-900">
         {/* Background grid + glow */}
         <div className="pointer-events-none absolute inset-0 opacity-50 [background-image:linear-gradient(rgba(30,64,175,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(30,64,175,0.2)_1px,transparent_1px)] [background-size:60px_60px]" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.35),transparent_55%)]" />
@@ -184,7 +184,7 @@ export default function Hero() {
                     <span className="mt-1 text-4xl font-black text-slate-50">
                       740
                     </span>
-                    <span className="mt-1 text-[11px] text-slate-400">
+                    <span className="mt-1 text-[9px] text-slate-400">
                       from 580 in ~3 months
                     </span>
                   </div>
