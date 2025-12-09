@@ -150,43 +150,50 @@ export default function Resources() {
   return (
     <div className="min-h-screen bg-gray-950 text-gray-100">
       {/* Dark Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-blue-950 to-indigo-950 py-24 px-6 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-gray-900 via-blue-950 to-indigo-950 py-16 px-4 sm:py-20 sm:px-6 md:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-black/40" />
+
         <div className="relative z-10 max-w-7xl mx-auto text-center">
+
+          {/* Tag */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-3 bg-cyan-500/20 backdrop-blur-md border border-cyan-500/30 text-cyan-300 px-6 py-3 rounded-full mb-10"
+            className="inline-flex items-center gap-2 sm:gap-3 bg-cyan-500/20 backdrop-blur-md border border-cyan-500/30
+                 text-cyan-300 px-4 py-2 sm:px-6 sm:py-3 rounded-full mb-6 sm:mb-10"
           >
             <div className="w-2 h-2 bg-cyan-400 rounded-full animate-ping" />
-            <span className="text-sm font-medium">Updated December 2025</span>
+            <span className="text-xs sm:text-sm font-medium">Updated December 2025</span>
           </motion.div>
 
+          {/* Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-4xl md:text-6xl font-black mb-6 leading-tight"
+            className="text-3xl sm:text-4xl md:text-6xl font-black mb-4 sm:mb-6 leading-tight"
           >
             Credit Education
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400
+                       text-3xl sm:text-4xl md:text-5xl mt-1">
               Resources Hub
             </span>
           </motion.h1>
 
+          {/* Description */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-16 font-light leading-relaxed"
+            className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto mb-12 sm:mb-16 font-light leading-relaxed px-2"
           >
             Real strategies backed by data — used by 50,000+ clients.
             <br className="hidden md:block" />
             Average result: <span className="font-bold text-cyan-400">+85 points in 45 days</span>
           </motion.p>
 
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {/* Stats Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto w-full px-2">
             {stats.map((stat, i) => {
               const Icon = stat.icon;
               return (
@@ -195,74 +202,91 @@ export default function Resources() {
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 + i * 0.15 }}
-                  className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 
-                     hover:border-cyan-400/60 hover:shadow-[0_0_20px_rgba(0,255,255,0.4)]
-                     transition-all duration-500"
+                  className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 sm:p-8
+                       hover:border-cyan-400/60 hover:shadow-[0_0_20px_rgba(0,255,255,0.4)]
+                       transition-all duration-500"
                 >
-                  <div className="w-14 h-14 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mb-5 shadow-2xl">
-                    <Icon className="w-8 h-8 text-white" />
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4 sm:mb-5 shadow-2xl">
+                    <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
-                  <div className="text-4xl font-black text-white mb-2">{stat.value}</div>
-                  <div className="text-gray-400 font-medium">{stat.label}</div>
+                  <div className="text-3xl sm:text-4xl font-black text-white mb-1 sm:mb-2">{stat.value}</div>
+                  <div className="text-gray-400 font-medium text-sm sm:text-base">{stat.label}</div>
                 </motion.div>
               );
             })}
           </div>
+
         </div>
       </section>
 
+
       {/* Light Content Area */}
-      <section className="bg-gray-50 py-20 px-24">
+      <section className="bg-gray-50 py-16 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-24">
         <div className="max-w-7xl mx-auto">
-          {/* Search & Filters */}
-          <div className="bg-white rounded-3xl shadow-xl p-4 mb-12 border border-gray-200">
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              {/* Search input */}
-              <div className="relative flex-1 min-w-[250px] max-w-lg">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+
+          {/* Search + Filters */}
+          <div className="bg-white rounded-3xl shadow-xl p-4 sm:p-6 mb-10 border border-gray-200">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:gap-4 justify-between">
+
+              {/* Search Input */}
+              <div className="relative w-full flex-1 max-w-full lg:max-w-lg xl:max-w-xl">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5 z-10" />
                 <input
                   type="text"
                   placeholder="Search tradelines, FICO tips, score repair..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-12 pr-6 py-4 bg-gray-50 border border-gray-300 rounded-2xl focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all text-gray-800 placeholder-gray-500"
+                  className="w-full pl-12 pr-5 py-3 bg-gray-50 border border-gray-300 rounded-2xl shadow-sm 
+            focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 
+            transition-all duration-200 text-gray-800 placeholder-gray-500"
                 />
               </div>
 
-              {/* Category buttons */}
-              <div className="flex flex-wrap gap-3 justify-center">
+              {/* Categories */}
+              <div className="flex flex-wrap gap-2 mt-4 lg:mt-0 lg:gap-3 justify-start lg:justify-end">
+                {/* All Button */}
                 <button
                   onClick={() => setActiveCategory("all")}
-                  className={`px-6 py-3 rounded-xl font-semibold transition-all ${activeCategory === "all"
-                    ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg"
-                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                  className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-2xl font-semibold transition-all duration-200 
+            shadow-sm whitespace-nowrap 
+            ${activeCategory === "all"
+                      ? "bg-blue-600 text-white shadow-md hover:bg-blue-700"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200"
                     }`}
                 >
                   All Resources
                 </button>
+
+                {/* Dynamic Category Buttons */}
                 {categories.map((cat) => (
                   <button
                     key={cat.id}
                     onClick={() => setActiveCategory(cat.slug)}
-                    className={`px-5 py-3 rounded-xl font-medium transition-all ${activeCategory === cat.slug
-                      ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg"
-                      : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                    className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-2xl font-medium transition-all duration-200 
+              flex items-center gap-1.5 whitespace-nowrap shadow-sm hover:shadow-md
+              ${activeCategory === cat.slug
+                        ? "bg-blue-600 text-white hover:bg-blue-700 border-0"
+                        : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200"
                       }`}
                   >
-                    {cat.name} <span className="text-xs opacity-70">({cat.count})</span>
+                    <span>{cat.name}</span>
+                    <span className={`text-xs px-2 py-0.5 rounded-full 
+                ${activeCategory === cat.slug ? "bg-white/40 text-white" : "bg-gray-300 text-gray-700"}`}
+                    >
+                      {cat.count}
+                    </span>
                   </button>
                 ))}
               </div>
             </div>
           </div>
 
-
-          {/* Featured Tools — NOW WITH IMAGES */}
-          <motion.div
+          {/* Featured Cards */}
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 mb-16"
           >
             {featuredCards.map((card, index) => {
               const Icon = card.icon;
@@ -272,46 +296,36 @@ export default function Resources() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.3 + index * 0.1 }}
-                  className="group bg-gradient-to-br from-white to-gray-50 rounded-3xl border border-gray-200 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 hover:border-blue-200 overflow-hidden"
+                  className="group bg-white rounded-3xl border border-gray-200 shadow-md hover:shadow-2xl hover:-translate-y-2 
+            transition-all duration-500 overflow-hidden"
                 >
-                  {/* New: Hero Image */}
-                  {/* <div className="relative h-48 overflow-hidden">
-                    <Image
-                      src={card.image}
-                      alt={card.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  </div> */}
-
-                  {/* <div className="p-8">
-                    <div className={`w-16 h-16 ${card.color} rounded-2xl flex items-center justify-center mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300`}>
-                      <Icon className="w-8 h-8 text-white" />
+                  <div className="p-6 sm:p-8">
+                    <div className={`w-14 h-14 sm:w-16 sm:h-16 ${card.color} rounded-2xl flex items-center justify-center mb-4 sm:mb-6`}>
+                      <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight">{card.title}</h3>
-                    <p className="text-gray-600 mb-6 leading-relaxed">{card.desc}</p>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">{card.title}</h3>
+                    <p className="text-gray-600 mb-5 text-sm sm:text-base">{card.desc}</p>
                     <Link
                       href={card.link}
-                      className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 group-hover:gap-3 transition-all duration-300"
+                      className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all"
                     >
                       Use Tool
-                      <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <ChevronRight className="w-4 h-4" />
                     </Link>
-                  </div> */}
+                  </div>
                 </motion.div>
               );
             })}
-          </motion.div>
+          </motion.div> */}
 
-          {/* Blog Grid — Images already working, just kept your perfect styling */}
+          {/* Blog Grid */}
           <AnimatePresence mode="wait">
             <motion.div
               key={`${activeCategory}-${searchTerm}-${currentPage}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"
+              className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8"
             >
               {paginatedPosts.map((post, index) => (
                 <motion.article
@@ -319,9 +333,10 @@ export default function Resources() {
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200 group"
+                  className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:bg-blue-50
+            transition-all duration-500 border border-gray-200"
                 >
-                  <div className="relative h-56 overflow-hidden">
+                  <div className="relative h-48 sm:h-56 overflow-hidden">
                     <Image
                       src={post.image}
                       alt={post.title}
@@ -329,14 +344,14 @@ export default function Resources() {
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className="px-4 py-2 bg-blue-600 text-white text-xs font-bold rounded-full shadow-lg">
+                      <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-600 text-white text-xs font-bold rounded-full shadow">
                         {post.category}
                       </span>
                     </div>
                   </div>
 
-                  <div className="p-7">
-                    <div className="flex items-center gap-3 text-sm text-gray-500 mb-4">
+                  <div className="p-5 sm:p-7">
+                    <div className="flex items-center flex-wrap gap-2 text-xs sm:text-sm text-gray-500 mb-4">
                       <div className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" />
                         {post.date}
@@ -347,20 +362,20 @@ export default function Resources() {
                       <span>{post.views} views</span>
                     </div>
 
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight line-clamp-2 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 leading-tight line-clamp-2 hover:text-blue-600 transition-colors">
                       {post.title}
                     </h3>
 
-                    <p className="text-gray-600 mb-6 leading-relaxed line-clamp-3 text-sm">
+                    <p className="text-gray-600 mb-5 text-sm sm:text-base leading-relaxed line-clamp-3">
                       {post.desc}
                     </p>
 
                     <Link
                       href={post.link}
-                      className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-4 transition-all duration-300"
+                      className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-4 transition-all"
                     >
                       Read Guide
-                      <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      <ChevronRight className="w-4 h-4" />
                     </Link>
                   </div>
                 </motion.article>
@@ -370,23 +385,24 @@ export default function Resources() {
 
           {/* Pagination */}
           {totalPages > 1 && (
-            <div className="flex justify-center items-center gap-4 mt-16">
+            <div className="flex justify-center items-center gap-3 mt-14 flex-wrap">
               <button
                 onClick={prevPage}
                 disabled={currentPage === 1}
-                className="p-4 rounded-xl bg-white shadow-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition"
+                className="p-3 rounded-xl bg-white shadow disabled:opacity-40 hover:bg-gray-50"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
 
-              <div className="flex gap-3">
+              <div className="flex gap-2">
                 {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                   <button
                     key={page}
                     onClick={() => setCurrentPage(page)}
-                    className={`w-12 h-12 rounded-xl font-medium transition-all ${currentPage === page
-                      ? "bg-blue-600 text-white shadow-lg"
-                      : "bg-white text-gray-700 shadow hover:bg-gray-100"
+                    className={`w-10 h-10 rounded-xl font-medium transition-all 
+              ${currentPage === page
+                        ? "bg-blue-600 text-white shadow"
+                        : "bg-white text-gray-700 shadow hover:bg-gray-100"
                       }`}
                   >
                     {page}
@@ -397,7 +413,7 @@ export default function Resources() {
               <button
                 onClick={nextPage}
                 disabled={currentPage === totalPages}
-                className="p-4 rounded-xl bg-white shadow-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition"
+                className="p-3 rounded-xl bg-white shadow disabled:opacity-40 hover:bg-gray-50"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -405,6 +421,7 @@ export default function Resources() {
           )}
         </div>
       </section>
+
     </div>
   );
 }

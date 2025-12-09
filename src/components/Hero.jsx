@@ -82,7 +82,7 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.15 }}
               className="max-w-xl text-sm md:text-base text-slate-200/90 leading-relaxed"
             >
-              Tradeline Supply Company gives you secure access to premium
+              Creditor Tradeline Exchange Company gives you secure access to premium
               authorized user tradelines. Break free from credit invisibility
               with a transparent, data-driven approach that actually makes
               sense.

@@ -27,44 +27,39 @@ export default function LoginPage() {
     if (error) setError('');
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setError('');
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsLoading(true);
+  setError('');
 
-    // Basic validation
-    if (!formData.email.includes('@')) {
-      setError('Please enter a valid email address');
-      setIsLoading(false);
-      return;
-    }
+  if (!formData.email.includes('@')) {
+    setError('Please enter a valid email address');
+    setIsLoading(false);
+    return;
+  }
 
-    if (formData.password.length < 8) {
-      setError('Password must be at least 8 characters');
-      setIsLoading(false);
-      return;
-    }
+  if (formData.password.length < 8) {
+    setError('Password must be at least 8 characters');
+    setIsLoading(false);
+    return;
+  }
 
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // In production, you would:
-      // 1. Call your authentication endpoint
-      // 2. Handle success/error responses
-      // 3. Store tokens securely
-      // 4. Redirect to dashboard
-      
-      console.log('Login attempt:', { email: formData.email });
-      
-      // Success - redirect to dashboard
-      router.push('/dashboard');
-    } catch (err) {
-      setError('Invalid email or password. Please try again.');
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  try {
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    // Save fake login session
+    localStorage.setItem("loggedIn", "true");
+    localStorage.setItem("userEmail", formData.email);
+
+    // Redirect to dashboard
+    router.push("/dashboard");
+
+  } catch (err) {
+    setError("Invalid email or password. Please try again.");
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   const handleSocialLogin = (provider) => {
     // Implement social login logic

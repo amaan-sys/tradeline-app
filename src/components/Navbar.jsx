@@ -17,7 +17,7 @@ export default function Navbar() {
     { name: "RESOURCES", path: "/resources" },
     { name: "ABOUT", path: "/about" },
     { name: "CONTACT", path: "/contact" },
-    { name: "MY ACCOUNT", path: "/my-account" },
+    { name: "MY ACCOUNT", path: "/myaccount" },
   ];
 
   // Hide navbar on scroll
@@ -49,7 +49,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <h1 className="text-xl sm:text-2xl font-extrabold text-white tracking-wide">
-              TRADELINE
+              TRADELINE EXCHANGE
             </h1>
           </Link>
 
